@@ -19,42 +19,13 @@ export default function Home() {
   };
 
   return (
-    <div className={cn("relative flex-1 flex flex-col justify-center items-center min-h-screen w-full bg-[#EBE4D5] overflow-hidden")}>
+    <div className={cn("relative flex-1 flex flex-col justify-center items-center w-full bg-[#EBE4D5] overflow-hidden")}>
       {/* Animated Background Orbs */}
-      <div className={cn("absolute inset-0 overflow-hidden pointer-events-none z-0")}>
+      <div className={cn("absolute inset-0 overflow-hidden pointer-events-none z-0 flex items-center justify-center")}>
         <motion.div
           animate={{
-            y: ["0%", "10%", "0%"],
-            x: ["0%", "-5%", "0%"],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 15,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className={cn("absolute top-[20%] left-[20%] w-[500px] h-[500px] rounded-full bg-[#E8DBBE] mix-blend-multiply filter blur-[100px] opacity-70")}
-        />
-        <motion.div
-          animate={{
-            y: ["0%", "-10%", "0%"],
-            x: ["0%", "5%", "0%"],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 20,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-          className={cn("absolute bottom-[20%] right-[20%] w-[600px] h-[600px] rounded-full bg-[#F3EDE2] mix-blend-multiply filter blur-[120px] opacity-60")}
-        />
-        <motion.div
-          animate={{
-            y: ["0%", "5%", "0%"],
-            x: ["0%", "10%", "0%"],
-            scale: [1, 0.95, 1],
+            x: ["-5%", "5%", "-5%"],
+            y: ["-5%", "5%", "-5%"],
           }}
           transition={{
             duration: 18,
@@ -62,7 +33,33 @@ export default function Home() {
             repeat: Infinity,
             repeatType: "reverse",
           }}
-          className={cn("absolute top-[40%] left-[50%] w-[400px] h-[400px] rounded-full bg-[#D4DFE8] mix-blend-multiply filter blur-[90px] opacity-40")}
+          className={cn("absolute w-[40vw] h-[40vw] rounded-full blur-[120px] opacity-40 bg-white translate-x-[-10vw] translate-y-[-10vw]")}
+        />
+        <motion.div
+          animate={{
+            x: ["5%", "-5%", "5%"],
+            y: ["5%", "-5%", "5%"],
+          }}
+          transition={{
+            duration: 15,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className={cn("absolute w-[40vw] h-[40vw] rounded-full blur-[120px] opacity-40 bg-[#F5EEDC] translate-x-[10vw] translate-y-[5vw]")}
+        />
+        <motion.div
+          animate={{
+            x: ["0%", "10%", "0%"],
+            y: ["10%", "0%", "10%"],
+          }}
+          transition={{
+            duration: 20,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
+          className={cn("absolute w-[40vw] h-[40vw] rounded-full blur-[120px] opacity-40 bg-[#E0E8F0] translate-y-[-15vw]")}
         />
       </div>
 
@@ -80,10 +77,10 @@ export default function Home() {
                 setIsOpen(!isOpen);
                 setIsFocused(true);
               }}
-              className={cn("w-full flex items-center justify-between px-6 py-4 bg-white/40 backdrop-blur-xl border border-white/60 rounded-full shadow-lg text-charcoal/80 text-lg hover:bg-white/50 transition-colors relative z-20")}
+              className={cn("h-16 w-full max-w-xl mx-auto rounded-full bg-white/30 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.05)] flex items-center justify-between px-6 hover:bg-white/40 transition-colors relative z-20")}
             >
-              <span className={cn("font-serif text-2xl")}>Выберите событие...</span>
-              <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", isOpen && "rotate-180")} />
+              <span className={cn("font-sans text-lg text-[#2D2D2D]")}>Выберите событие...</span>
+              <ChevronDown className={cn("w-5 h-5 text-[#2D2D2D] transition-transform duration-300", isOpen && "rotate-180")} />
             </button>
 
             <AnimatePresence>
@@ -93,23 +90,23 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -20, filter: "blur(8px)" }}
                   transition={{ duration: 0.3 }}
-                  className={cn("absolute top-full mt-2 w-full bg-white/70 backdrop-blur-xl border border-white/60 rounded-3xl shadow-xl overflow-hidden py-2 z-10")}
+                  className={cn("absolute top-full mt-2 w-full max-w-xl mx-auto left-0 right-0 bg-white/30 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-3xl overflow-hidden py-2 z-10")}
                 >
                   <button
                     onClick={() => handleSelect("")}
-                    className={cn("w-full text-left px-6 py-4 text-charcoal hover:bg-white/50 transition-colors font-serif text-2xl")}
+                    className={cn("w-full text-left px-6 py-4 text-[#2D2D2D] hover:bg-white/40 transition-colors font-sans text-lg")}
                   >
                     Свадьба
                   </button>
                   <button
                     onClick={() => handleSelect("/birthday")}
-                    className={cn("w-full text-left px-6 py-4 text-charcoal hover:bg-white/50 transition-colors font-serif text-2xl")}
+                    className={cn("w-full text-left px-6 py-4 text-[#2D2D2D] hover:bg-white/40 transition-colors font-sans text-lg")}
                   >
                     День рождения
                   </button>
                   <button
                     onClick={() => handleSelect("")}
-                    className={cn("w-full text-left px-6 py-4 text-charcoal hover:bg-white/50 transition-colors font-serif text-2xl")}
+                    className={cn("w-full text-left px-6 py-4 text-[#2D2D2D] hover:bg-white/40 transition-colors font-sans text-lg")}
                   >
                     Корпоратив
                   </button>

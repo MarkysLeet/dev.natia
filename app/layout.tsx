@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -34,7 +33,6 @@ export default function RootLayout({
         className={`${cormorantGaramond.variable} ${montserrat.variable} antialiased font-sans min-h-screen flex flex-col`}
       >
         <SmoothScroll>
-          <CustomCursor />
           <Header />
           <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
