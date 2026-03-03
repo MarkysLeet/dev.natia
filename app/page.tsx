@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   return (
-    <div className={cn("relative flex-1 flex flex-col justify-center items-center min-h-screen w-full bg-[#EBE4D5] overflow-hidden")}>
+    <div className={cn("relative flex-1 flex flex-col justify-center items-center w-full bg-[#EBE4D5] overflow-hidden")}>
       {/* Animated Background Orbs */}
       <div className={cn("absolute inset-0 overflow-hidden pointer-events-none z-0 flex items-center justify-center")}>
         <motion.div
