@@ -27,7 +27,7 @@ export function ContactDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className={cn("fixed top-0 right-0 h-full w-full max-w-md z-50 bg-white/70 backdrop-blur-xl border-l border-white/40 shadow-2xl p-8 flex flex-col")}
+            className={cn("fixed top-0 right-0 h-full w-full max-w-md z-50 bg-white/40 backdrop-blur-2xl border-l border-white/50 shadow-2xl p-10 flex flex-col")}
           >
             <div className={cn("flex justify-between items-center mb-12")}>
               <h2 className={cn("text-3xl font-serif text-charcoal")}>Связаться</h2>
