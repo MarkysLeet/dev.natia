@@ -4,12 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
-
-function cn(...classes: (string | undefined | null | false)[]) {
-  return twMerge(clsx(classes));
-}
+import { cn } from "@/lib/utils";
 
 const options = [
   { label: "Свадьба", value: "wedding" },
@@ -45,7 +40,7 @@ export default function EventSelector() {
   };
 
   return (
-    <div className="relative z-50 w-full max-w-md mx-auto" ref={containerRef}>
+    <div className={cn("relative z-50 w-full max-w-md mx-auto")} ref={containerRef}>
       {/* Mobile interaction requires moving to the top if open.
           We handle this with framer-motion layout animations. */}
 
@@ -70,15 +65,15 @@ export default function EventSelector() {
             isOpen && "bg-white/15"
           )}
         >
-          <Search className="w-5 h-5 text-white/70" />
-          <span className="flex-1 text-base sm:text-lg tracking-wide whitespace-nowrap overflow-hidden text-ellipsis opacity-90">
+          <Search className={cn("w-5 h-5 text-white/70")} />
+          <span className={cn("flex-1 text-base sm:text-lg tracking-wide whitespace-nowrap overflow-hidden text-ellipsis opacity-90")}>
             Что вы хотите отпраздновать?
           </span>
           <motion.div
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <ChevronDown className="w-5 h-5 text-white/70" />
+            <ChevronDown className={cn("w-5 h-5 text-white/70")} />
           </motion.div>
         </motion.div>
 
@@ -90,9 +85,9 @@ export default function EventSelector() {
               animate={{ opacity: 1, y: 8, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className="absolute left-0 right-0 top-full mt-2 w-full"
+              className={cn("absolute left-0 right-0 top-full mt-2 w-full")}
             >
-              <div className="backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-3xl overflow-hidden py-2 flex flex-col">
+              <div className={cn("backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl rounded-3xl overflow-hidden py-2 flex flex-col")}>
                 {options.map((option) => (
                   <button
                     key={option.value}
@@ -100,7 +95,7 @@ export default function EventSelector() {
                       e.stopPropagation();
                       handleSelect(option);
                     }}
-                    className="w-full text-left px-6 py-4 text-white hover:bg-white/10 transition-colors text-lg tracking-wide"
+                    className={cn("w-full text-left px-6 py-4 text-white hover:bg-white/10 transition-colors text-lg tracking-wide")}
                   >
                     {option.label}
                   </button>
@@ -118,7 +113,7 @@ export default function EventSelector() {
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              exit={{ opacity: 0 }}
-             className="fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 md:hidden"
+             className={cn("fixed inset-0 bg-black/40 backdrop-blur-[2px] z-40 md:hidden")}
              onClick={() => setIsOpen(false)}
            />
         )}
